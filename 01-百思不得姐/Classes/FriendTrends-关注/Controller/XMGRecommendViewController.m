@@ -92,7 +92,7 @@
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @([category id]);
-    params[@"page"] = @"2";
+    params[@"page"] = @(++category.currentPage);
     [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //XMGLog(@"%@",responseObject);
         //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
@@ -100,7 +100,11 @@
         [category.users addObjectsFromArray:users];
         
         [self.userTableView reloadData];
-        [self.userTableView.mj_footer endRefreshing];
+        if (category.users.count == category.total) {
+            [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [self.userTableView.mj_footer endRefreshing];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         XMGLog(@"加载失败");
     }];
@@ -145,17 +149,27 @@
     if (c.users.count) {
         [self.userTableView reloadData];
     }else{
+        [self.userTableView reloadData];
+        
+        c.currentPage = 1;
         
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
         params[@"category_id"] = @(c.id);
+        params[@"page"] = @(c.currentPage);
         [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             //XMGLog(@"%@",responseObject);
             //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
             NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
             [c.users addObjectsFromArray:users];
+            //保存用户总数
+            c.total = [responseObject[@"total"] integerValue];
+            
             [self.userTableView reloadData];
+            if (c.users.count == c.total) {
+                [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+            }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             XMGLog(@"加载失败");
         }];
