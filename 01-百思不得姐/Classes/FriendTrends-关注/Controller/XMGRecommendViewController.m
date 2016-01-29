@@ -14,6 +14,11 @@
 #import <MJExtension.h>
 #import "XMGRecommendUser.h"
 #import "XMGRecommendUserCell.h"
+#import <MJRefresh.h>
+
+
+#define XMGSelectCategory self.catrgories[self.categoryTableView.indexPathForSelectedRow.row]
+
 @interface XMGRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 /*左边类别的数据 */
@@ -25,33 +30,34 @@
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
 
 @property (weak, nonatomic) IBOutlet UITableView *userTableView;
+
+/*AFN管理者 */
+@property (nonatomic, strong) AFHTTPSessionManager  *manager;
+
+
 @end
 
 @implementation XMGRecommendViewController
 
  static NSString * const XMGCategoryId = @"category";
  static NSString * const XMGUserId = @"user";
+
+-(AFHTTPSessionManager *)manager{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setupTableView];
-   
+    //下拉刷新
+    [self setupRefresh];
     // Do any additional setup after loading the view from its nib.
    
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    dict[@"a"] = @"category";
-//     dict[@"c"] = @"subscribe";
-//    [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        [SVProgressHUD dismiss];
-//       // XMGLog(@"%@",responseObject);
-//        self.catrgories = [XMGRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
-//        [self.categoryTableView reloadData];
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        [SVProgressHUD showErrorWithStatus:@"加载失败"];
-//       // XMGLog(@".....");
-//    }];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
@@ -60,7 +66,8 @@
         [SVProgressHUD dismiss];
         
         // 服务器返回的JSON数据
-        self.catrgories = [XMGRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        //self.catrgories = [XMGRecommendCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        self.catrgories = [XMGRecommendCategory mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 刷新表格
         [self.categoryTableView reloadData];
@@ -73,6 +80,31 @@
     }];
 
    
+}
+-(void)setupRefresh{
+    self.userTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    self.userTableView.mj_footer.hidden = YES;
+}
+-(void)loadMoreUsers{
+    XMGRecommendCategory *category = XMGSelectCategory;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @([category id]);
+    params[@"page"] = @"2";
+    [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //XMGLog(@"%@",responseObject);
+        //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [category.users addObjectsFromArray:users];
+        
+        [self.userTableView reloadData];
+        [self.userTableView.mj_footer endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        XMGLog(@"加载失败");
+    }];
+
 }
 -(void)setupTableView{
      [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGRecommendCategoryCell class]) bundle:nil] forCellReuseIdentifier:XMGCategoryId];
@@ -89,8 +121,9 @@
     if (tableView == self.categoryTableView) {
         return self.catrgories.count;
     }else{
-        XMGRecommendCategory *c = self.catrgories[self.categoryTableView.indexPathForSelectedRow.row];
-        return c.users.count;
+        NSInteger count = [XMGSelectCategory users].count;
+        self.userTableView.mj_footer.hidden = (count == 0);
+        return count;
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -101,8 +134,8 @@
         return cell;
     }else{
         XMGRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGUserId];
-        XMGRecommendCategory *c = self.catrgories[self.categoryTableView.indexPathForSelectedRow.row];
-        cell.user = c.users[indexPath.row];
+        
+        cell.user = [XMGSelectCategory users][indexPath.row];
         return cell;
     }
 }
@@ -112,6 +145,7 @@
     if (c.users.count) {
         [self.userTableView reloadData];
     }else{
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
@@ -119,13 +153,14 @@
         [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             //XMGLog(@"%@",responseObject);
             //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            NSArray *users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
             [c.users addObjectsFromArray:users];
             [self.userTableView reloadData];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             XMGLog(@"加载失败");
         }];
-    }
+
+           }
     
 }
 
