@@ -8,6 +8,8 @@
 
 #import "XMGEssenceViewController.h"
 
+
+
 @implementation XMGEssenceViewController
 
 - (void)viewDidLoad
@@ -28,4 +30,6 @@
 {
     XMGLogFunc;
 }
+
+
 @end

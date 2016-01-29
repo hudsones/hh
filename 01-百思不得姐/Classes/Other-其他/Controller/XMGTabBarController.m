@@ -12,12 +12,12 @@
 #import "XMGFriendTrendsViewController.h"
 #import "XMGMeViewController.h"
 #import "XMGTabBar.h"
+#import "XMGNavigationController.h"
 
 @implementation XMGTabBarController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+
++(void)initialize{
     
     [UINavigationBar appearance];
     
@@ -34,6 +34,11 @@
     UITabBarItem *item = [UITabBarItem appearance];
     [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
     
     // 添加子控制器
     [self setupChildVc:[[XMGEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
@@ -60,8 +65,8 @@
     vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     
     // 包装一个导航控制器, 添加导航控制器为tabbarcontroller的子控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    XMGNavigationController *nav = [[XMGNavigationController alloc] initWithRootViewController:vc];
+    
     [self addChildViewController:nav];
 }
 @end

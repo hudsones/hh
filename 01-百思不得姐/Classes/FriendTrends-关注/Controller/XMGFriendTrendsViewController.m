@@ -28,5 +28,4 @@
 {
     XMGLogFunc;
 }
-
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189CC84D1C59D334003C8362 /* XMGNavigationController.m */; };
 		70B5CB631B5F27D200E1C3EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B5CB621B5F27D200E1C3EA /* Images.xcassets */; };
 		70B5CB721B5F27D200E1C3EA /* _1______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5CB711B5F27D200E1C3EA /* _1______Tests.m */; };
 		70B5CBC01B5F7EEF00E1C3EA /* XMGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5CB9B1B5F7EEF00E1C3EA /* XMGEssenceViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189CC84C1C59D334003C8362 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
+		189CC84D1C59D334003C8362 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
 		70B5CB521B5F27D200E1C3EA /* 01-百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01-百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B5CB561B5F27D200E1C3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70B5CB621B5F27D200E1C3EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 			children = (
 				70B5CBB91B5F7EEF00E1C3EA /* XMGTabBarController.h */,
 				70B5CBBA1B5F7EEF00E1C3EA /* XMGTabBarController.m */,
+				189CC84C1C59D334003C8362 /* XMGNavigationController.h */,
+				189CC84D1C59D334003C8362 /* XMGNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70B5CBC91B5F7EEF00E1C3EA /* XMGTabBar.m in Sources */,
+				189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */,
 				70B5CBC21B5F7EEF00E1C3EA /* XMGMeViewController.m in Sources */,
 				70B5CBC01B5F7EEF00E1C3EA /* XMGEssenceViewController.m in Sources */,
 				70B5CBC31B5F7EEF00E1C3EA /* XMGNewViewController.m in Sources */,
