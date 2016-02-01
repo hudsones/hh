@@ -429,7 +429,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = XMG;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "小码哥";
 				TargetAttributes = {
 					70B5CB511B5F27D200E1C3EA = {
@@ -593,6 +593,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -665,6 +666,7 @@
 				GCC_PREFIX_HEADER = "01-百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "01-百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "XMG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -678,6 +680,7 @@
 				GCC_PREFIX_HEADER = "01-百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "01-百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "XMG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -696,6 +699,7 @@
 				);
 				INFOPLIST_FILE = "01-百思不得姐Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "XMG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/01-百思不得姐.app/01-百思不得姐";
 			};
@@ -711,6 +715,7 @@
 				);
 				INFOPLIST_FILE = "01-百思不得姐Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "XMG.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/01-百思不得姐.app/01-百思不得姐";
 			};

@@ -31,6 +31,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *userTableView;
 
+/*请求参数 */
+@property (nonatomic, strong) NSMutableDictionary  *prames;
+
+
+
 /*AFN管理者 */
 @property (nonatomic, strong) AFHTTPSessionManager  *manager;
 
@@ -51,17 +56,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    //控件的初始化
     [self setupTableView];
     //下拉刷新
     [self setupRefresh];
     // Do any additional setup after loading the view from its nib.
    
     
+    //加载左侧数据
+    [self loadCategories];
+   
+}
+-(void)loadCategories{
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.prames = params;
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (self.prames != params) return ;
         // 隐藏指示器
         [SVProgressHUD dismiss];
         
@@ -74,16 +88,55 @@
         
         // 默认选中首行
         [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        [self.userTableView.mj_header beginRefreshing];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (self.prames != params) return ;
         // 显示失败信息
         [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
     }];
 
-   
 }
 -(void)setupRefresh{
-    self.userTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    self.userTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    
+    self.userTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
     self.userTableView.mj_footer.hidden = YES;
+}
+-(void)loadNewUsers{
+    
+    XMGRecommendCategory *rc = XMGSelectCategory;
+    rc.currentPage = 1;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(rc.id);
+    params[@"page"] = @(rc.currentPage);
+    self.prames = params;
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         if (self.prames != params) return ;
+        //XMGLog(@"%@",responseObject);
+        //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [rc.users addObjectsFromArray:users];
+        //保存用户总数
+        rc.total = [responseObject[@"total"] integerValue];
+        
+        [self.userTableView reloadData];
+       
+        [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+        [self.userTableView.mj_header endRefreshing];
+        if (rc.users.count == rc.total) {
+            [self.userTableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [self.userTableView.mj_footer endRefreshing];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         if (self.prames != params) return ;
+        [SVProgressHUD showErrorWithStatus:@"加载失败"];
+        [self.userTableView.mj_header endRefreshing];
+    }];
 }
 -(void)loadMoreUsers{
     XMGRecommendCategory *category = XMGSelectCategory;
@@ -93,19 +146,20 @@
     params[@"c"] = @"subscribe";
     params[@"category_id"] = @([category id]);
     params[@"page"] = @(++category.currentPage);
-    [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    self.prames = params;
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         if (self.prames != params) return ;
         //XMGLog(@"%@",responseObject);
         //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
         NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [category.users removeAllObjects];
         [category.users addObjectsFromArray:users];
         
         [self.userTableView reloadData];
-        if (category.users.count == category.total) {
-            [self.userTableView.mj_footer endRefreshingWithNoMoreData];
-        }else{
-            [self.userTableView.mj_footer endRefreshing];
-        }
+        [self checkFooterStater];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         if (self.prames != params) return ;
         XMGLog(@"加载失败");
     }];
 
@@ -121,14 +175,23 @@
     self.navigationItem.title = @"推荐关注";
     self.view.backgroundColor = XMGGlobalBg;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView == self.categoryTableView) {
-        return self.catrgories.count;
+//时刻检查footer的状态
+-(void)checkFooterStater{
+    XMGRecommendCategory *rc = XMGSelectCategory;
+    self.userTableView.mj_footer.hidden = (rc.users.count == 0);
+
+    if (rc.users.count == rc.total) {
+        [self.userTableView.mj_footer endRefreshingWithNoMoreData];
     }else{
-        NSInteger count = [XMGSelectCategory users].count;
-        self.userTableView.mj_footer.hidden = (count == 0);
-        return count;
+        [self.userTableView.mj_footer endRefreshing];
     }
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView == self.categoryTableView)  return self.catrgories.count;
+    
+   [self checkFooterStater];
+   return [XMGSelectCategory users].count;
+  
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
@@ -145,39 +208,24 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.userTableView.mj_footer endRefreshing];
+    [self.userTableView.mj_header endRefreshing];
     XMGRecommendCategory *c = self.catrgories[indexPath.row];
     if (c.users.count) {
         [self.userTableView reloadData];
     }else{
         [self.userTableView reloadData];
-        
-        c.currentPage = 1;
-        
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"a"] = @"list";
-        params[@"c"] = @"subscribe";
-        params[@"category_id"] = @(c.id);
-        params[@"page"] = @(c.currentPage);
-        [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //XMGLog(@"%@",responseObject);
-            //self.users = [XMGRecommendUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            NSArray *users = [XMGRecommendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            [c.users addObjectsFromArray:users];
-            //保存用户总数
-            c.total = [responseObject[@"total"] integerValue];
-            
-            [self.userTableView reloadData];
-            if (c.users.count == c.total) {
-                [self.userTableView.mj_footer endRefreshingWithNoMoreData];
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            XMGLog(@"加载失败");
-        }];
+        //进入下拉刷新状态
+        [self.userTableView.mj_header beginRefreshing];
 
            }
     
 }
 
+-(void)dealloc{
+    [self.manager.operationQueue cancelAllOperations];
+}
 /*
 #pragma mark - Navigation
 

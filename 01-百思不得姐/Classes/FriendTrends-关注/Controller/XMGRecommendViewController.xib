@@ -17,27 +17,29 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4m-G1-awn" userLabel="左侧表格">
-                    <rect key="frame" x="0.0" y="0.0" width="70" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="pIG-En-6cX"/>
-                    </constraints>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="E4g-cj-KPc"/>
-                        <outlet property="delegate" destination="-1" id="Eff-rx-fn5"/>
-                    </connections>
-                </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9j-ph-qX4" userLabel="右侧表格">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9j-ph-qX4" userLabel="右侧表格">
                     <rect key="frame" x="70" y="0.0" width="530" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexTrackingBackgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="xYS-0k-Rup"/>
                         <outlet property="delegate" destination="-1" id="pU9-tw-goa"/>
                     </connections>
                 </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4m-G1-awn" userLabel="左侧表格">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="pIG-En-6cX"/>
+                    </constraints>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="E4g-cj-KPc"/>
+                        <outlet property="delegate" destination="-1" id="Eff-rx-fn5"/>
+                    </connections>
+                </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="L9j-ph-qX4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3PL-ga-j3u"/>
                 <constraint firstItem="R4m-G1-awn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Cu-dQ-LB1"/>
@@ -47,7 +49,7 @@
                 <constraint firstAttribute="trailing" secondItem="L9j-ph-qX4" secondAttribute="trailing" id="wIS-5x-OmW"/>
                 <constraint firstAttribute="bottom" secondItem="R4m-G1-awn" secondAttribute="bottom" id="wm7-QM-r2U"/>
             </constraints>
-            <point key="canvasLocation" x="376" y="503"/>
+            <point key="canvasLocation" x="431" y="461"/>
         </view>
     </objects>
 </document>

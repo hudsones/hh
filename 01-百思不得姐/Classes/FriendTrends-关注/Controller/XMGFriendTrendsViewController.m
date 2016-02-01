@@ -30,6 +30,7 @@
 - (void)friendsClick
 {
     XMGRecommendViewController *VC = [[XMGRecommendViewController alloc]init];
+    VC.view.backgroundColor = [UIColor redColor];
     [self.navigationController pushViewController:VC animated:YES];
 }
 @end
