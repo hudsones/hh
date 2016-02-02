@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1855FD331C5F4023002BF28B /* XMGTextfieldAttr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855FD321C5F4023002BF28B /* XMGTextfieldAttr.m */; };
+		189222751C604A6C009D579F /* XMGPushGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189222741C604A6C009D579F /* XMGPushGuideView.m */; };
+		189222791C604B05009D579F /* XMGPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189222781C604B05009D579F /* XMGPushGuideView.xib */; };
 		1892B2ED1C5B0CEA0039FF47 /* XMGRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892B2EB1C5B0CEA0039FF47 /* XMGRecommendViewController.m */; };
 		1892B2EE1C5B0CEA0039FF47 /* XMGRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892B2EC1C5B0CEA0039FF47 /* XMGRecommendViewController.xib */; };
 		1892B2F11C5B1C4F0039FF47 /* XMGRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892B2F01C5B1C4F0039FF47 /* XMGRecommendCategory.m */; };
@@ -16,6 +19,10 @@
 		1892B3001C5B45D40039FF47 /* XMGRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1892B2FE1C5B45D40039FF47 /* XMGRecommendUserCell.m */; };
 		1892B3011C5B45D40039FF47 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892B2FF1C5B45D40039FF47 /* XMGRecommendUserCell.xib */; };
 		189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189CC84D1C59D334003C8362 /* XMGNavigationController.m */; };
+		18F5CB7E1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F5CB7D1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib */; };
+		18F5CB821C5F022600F3297F /* XMGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CB801C5F022600F3297F /* XMGLoginRegisterViewController.m */; };
+		18F5CB831C5F022600F3297F /* XMGLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F5CB811C5F022600F3297F /* XMGLoginRegisterViewController.xib */; };
+		18F5CB861C5F093300F3297F /* XMGVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5CB851C5F093300F3297F /* XMGVerticalButton.m */; };
 		70B5CB631B5F27D200E1C3EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B5CB621B5F27D200E1C3EA /* Images.xcassets */; };
 		70B5CB721B5F27D200E1C3EA /* _1______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5CB711B5F27D200E1C3EA /* _1______Tests.m */; };
 		70B5CBC01B5F7EEF00E1C3EA /* XMGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5CB9B1B5F7EEF00E1C3EA /* XMGEssenceViewController.m */; };
@@ -42,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1855FD311C5F4023002BF28B /* XMGTextfieldAttr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTextfieldAttr.h; sourceTree = "<group>"; };
+		1855FD321C5F4023002BF28B /* XMGTextfieldAttr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTextfieldAttr.m; sourceTree = "<group>"; };
+		189222731C604A6C009D579F /* XMGPushGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPushGuideView.h; sourceTree = "<group>"; };
+		189222741C604A6C009D579F /* XMGPushGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPushGuideView.m; sourceTree = "<group>"; };
+		189222781C604B05009D579F /* XMGPushGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPushGuideView.xib; sourceTree = "<group>"; };
 		1892B2EA1C5B0CEA0039FF47 /* XMGRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendViewController.h; sourceTree = "<group>"; };
 		1892B2EB1C5B0CEA0039FF47 /* XMGRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendViewController.m; sourceTree = "<group>"; };
 		1892B2EC1C5B0CEA0039FF47 /* XMGRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendViewController.xib; sourceTree = "<group>"; };
@@ -57,6 +69,12 @@
 		1892B2FF1C5B45D40039FF47 /* XMGRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendUserCell.xib; sourceTree = "<group>"; };
 		189CC84C1C59D334003C8362 /* XMGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNavigationController.h; sourceTree = "<group>"; };
 		189CC84D1C59D334003C8362 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
+		18F5CB7D1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGFriendTrendsViewController.xib; sourceTree = "<group>"; };
+		18F5CB7F1C5F022600F3297F /* XMGLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGLoginRegisterViewController.h; sourceTree = "<group>"; };
+		18F5CB801C5F022600F3297F /* XMGLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGLoginRegisterViewController.m; sourceTree = "<group>"; };
+		18F5CB811C5F022600F3297F /* XMGLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		18F5CB841C5F093300F3297F /* XMGVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGVerticalButton.h; sourceTree = "<group>"; };
+		18F5CB851C5F093300F3297F /* XMGVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGVerticalButton.m; sourceTree = "<group>"; };
 		29ECF4B08B9EC0FADE9F9A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		686EE972533FF6CBCB7A18CB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		70B5CB521B5F27D200E1C3EA /* 01-百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01-百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,9 +257,13 @@
 			children = (
 				70B5CBA01B5F7EEF00E1C3EA /* XMGFriendTrendsViewController.h */,
 				70B5CBA11B5F7EEF00E1C3EA /* XMGFriendTrendsViewController.m */,
+				18F5CB7D1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib */,
 				1892B2EA1C5B0CEA0039FF47 /* XMGRecommendViewController.h */,
 				1892B2EB1C5B0CEA0039FF47 /* XMGRecommendViewController.m */,
 				1892B2EC1C5B0CEA0039FF47 /* XMGRecommendViewController.xib */,
+				18F5CB7F1C5F022600F3297F /* XMGLoginRegisterViewController.h */,
+				18F5CB801C5F022600F3297F /* XMGLoginRegisterViewController.m */,
+				18F5CB811C5F022600F3297F /* XMGLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,6 +288,10 @@
 				1892B2FD1C5B45D40039FF47 /* XMGRecommendUserCell.h */,
 				1892B2FE1C5B45D40039FF47 /* XMGRecommendUserCell.m */,
 				1892B2FF1C5B45D40039FF47 /* XMGRecommendUserCell.xib */,
+				18F5CB841C5F093300F3297F /* XMGVerticalButton.h */,
+				18F5CB851C5F093300F3297F /* XMGVerticalButton.m */,
+				1855FD311C5F4023002BF28B /* XMGTextfieldAttr.h */,
+				1855FD321C5F4023002BF28B /* XMGTextfieldAttr.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +403,9 @@
 			children = (
 				70B5CBBE1B5F7EEF00E1C3EA /* XMGTabBar.h */,
 				70B5CBBF1B5F7EEF00E1C3EA /* XMGTabBar.m */,
+				189222731C604A6C009D579F /* XMGPushGuideView.h */,
+				189222741C604A6C009D579F /* XMGPushGuideView.m */,
+				189222781C604B05009D579F /* XMGPushGuideView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -465,7 +494,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F5CB7E1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib in Resources */,
 				1892B2F91C5B1FDB0039FF47 /* XMGRecommendCategoryCell.xib in Resources */,
+				18F5CB831C5F022600F3297F /* XMGLoginRegisterViewController.xib in Resources */,
+				189222791C604B05009D579F /* XMGPushGuideView.xib in Resources */,
 				1892B2EE1C5B0CEA0039FF47 /* XMGRecommendViewController.xib in Resources */,
 				1892B3011C5B45D40039FF47 /* XMGRecommendUserCell.xib in Resources */,
 				70B5CB631B5F27D200E1C3EA /* Images.xcassets in Resources */,
@@ -538,15 +570,19 @@
 				189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */,
 				1892B2F11C5B1C4F0039FF47 /* XMGRecommendCategory.m in Sources */,
 				70B5CBC21B5F7EEF00E1C3EA /* XMGMeViewController.m in Sources */,
+				18F5CB821C5F022600F3297F /* XMGLoginRegisterViewController.m in Sources */,
 				70B5CBC01B5F7EEF00E1C3EA /* XMGEssenceViewController.m in Sources */,
+				1855FD331C5F4023002BF28B /* XMGTextfieldAttr.m in Sources */,
 				1892B2ED1C5B0CEA0039FF47 /* XMGRecommendViewController.m in Sources */,
 				1892B3001C5B45D40039FF47 /* XMGRecommendUserCell.m in Sources */,
 				70B5CBC31B5F7EEF00E1C3EA /* XMGNewViewController.m in Sources */,
+				189222751C604A6C009D579F /* XMGPushGuideView.m in Sources */,
 				70B5CBC61B5F7EEF00E1C3EA /* UIView+XMGExtension.m in Sources */,
 				1892B2FC1C5B45330039FF47 /* XMGRecommendUser.m in Sources */,
 				70B5CBC71B5F7EEF00E1C3EA /* XMGTabBarController.m in Sources */,
 				70B5CBC11B5F7EEF00E1C3EA /* XMGFriendTrendsViewController.m in Sources */,
 				70B5CBC41B5F7EEF00E1C3EA /* AppDelegate.m in Sources */,
+				18F5CB861C5F093300F3297F /* XMGVerticalButton.m in Sources */,
 				1892B2F81C5B1FDB0039FF47 /* XMGRecommendCategoryCell.m in Sources */,
 				70B5CBC81B5F7EEF00E1C3EA /* main.m in Sources */,
 				70B5CBC51B5F7EEF00E1C3EA /* UIBarButtonItem+XMGExtension.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "XMGFriendTrendsViewController.h"
 #import "XMGRecommendViewController.h"
-
+#import "XMGLoginRegisterViewController.h"
 
 
 @implementation XMGFriendTrendsViewController
@@ -26,6 +26,12 @@
     // 设置背景色
     self.view.backgroundColor = XMGGlobalBg;
 }
+
+- (IBAction)logn {
+    XMGLoginRegisterViewController *VC = [[XMGLoginRegisterViewController alloc]init];
+    [self presentViewController:VC animated:YES completion:nil];
+}
+
 
 - (void)friendsClick
 {
