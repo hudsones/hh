@@ -154,9 +154,9 @@
     vc.view.y = 0;
     vc.view.height = scrollView.height;
     
-        CGFloat bottom = self.tabBarController.tabBar.height;
-        CGFloat top = CGRectGetMaxY(self.titlesView.frame);
-        vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    CGFloat top = CGRectGetMaxY(self.titlesView.frame);
+    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [scrollView addSubview:vc.view];
 }

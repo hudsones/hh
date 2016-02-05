@@ -11,24 +11,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushguidemid" translatesAutoresizingMaskIntoConstraints="NO" id="eqZ-ka-m6h">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pushguidemid" translatesAutoresizingMaskIntoConstraints="NO" id="eqZ-ka-m6h">
                     <rect key="frame" x="180" y="238" width="240" height="125"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushguidetop" translatesAutoresizingMaskIntoConstraints="NO" id="36o-Hy-33x">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pushguidetop" translatesAutoresizingMaskIntoConstraints="NO" id="36o-Hy-33x">
                     <rect key="frame" x="180" y="80" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="ENc-KO-NAd"/>
                         <constraint firstAttribute="width" constant="240" id="i3U-WD-dZd"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushguidebot" translatesAutoresizingMaskIntoConstraints="NO" id="3NO-lU-McX">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pushguidebot" translatesAutoresizingMaskIntoConstraints="NO" id="3NO-lU-McX">
                     <rect key="frame" x="180" y="363" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="gAK-lC-1BQ"/>
                         <constraint firstAttribute="width" constant="240" id="mdE-Dx-kct"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-qC-Gre">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-qC-Gre">
                     <rect key="frame" x="180" y="363" width="240" height="128"/>
                     <connections>
                         <action selector="close" destination="-1" eventType="touchUpInside" id="A5x-uj-6T2"/>

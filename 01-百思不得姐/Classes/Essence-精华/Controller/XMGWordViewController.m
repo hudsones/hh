@@ -12,6 +12,9 @@
 #import <MJExtension.h>
 #import "XMGTopic.h"
 #import <MJRefresh.h>
+#import "XMGTopicCell.h"
+#import "NSDate+XMGExtension.h"
+
 @interface XMGWordViewController ()
 
 /*帖子数据 */
@@ -36,10 +39,18 @@
     }
     return _topics;
 }
+static NSString * const  XMGTopicID = @"topic";
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTableView];
     [self setupRefresh];
     }
+-(void)setupTableView{
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGTopicCell class]) bundle:nil] forCellReuseIdentifier:XMGTopicID];
+    self.tableView.backgroundColor = XMGGlobalBg;
+    self.tableView.separatorStyle = NO;
+    self.tableView.rowHeight = 100;
+}
 -(void)setupRefresh{
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
@@ -109,16 +120,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    XMGTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    XMGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGTopicID];
+    
+    cell.topics = self.topics[indexPath.row];
+
+    
     
     return cell;
 }
