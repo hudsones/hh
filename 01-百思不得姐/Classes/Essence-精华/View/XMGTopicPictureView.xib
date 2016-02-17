@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XMGTopicPictureView">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="198"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mOU-RE-kZr" userLabel="图片">
+                    <rect key="frame" x="0.0" y="0.0" width="376" height="198"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="X6U-sl-Qgo" userLabel="gif">
+                    <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="83t-Tw-BmY"/>
+                        <constraint firstAttribute="height" constant="62" id="w60-Q2-ELL"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MF-9f-9fA" userLabel="点击查看全图">
+                    <rect key="frame" x="0.0" y="155" width="376" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="Ydp-8G-1sk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mOU-RE-kZr" secondAttribute="bottom" id="1pm-MJ-Rhk"/>
+                <constraint firstItem="mOU-RE-kZr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2og-S8-g9J"/>
+                <constraint firstItem="X6U-sl-Qgo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C5i-jZ-gCg"/>
+                <constraint firstItem="X6U-sl-Qgo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EbN-0v-88C"/>
+                <constraint firstItem="1MF-9f-9fA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JK5-to-o39"/>
+                <constraint firstAttribute="trailing" secondItem="mOU-RE-kZr" secondAttribute="trailing" id="Ruv-So-dBl"/>
+                <constraint firstAttribute="trailing" secondItem="1MF-9f-9fA" secondAttribute="trailing" id="cCD-f4-Rgo"/>
+                <constraint firstAttribute="bottom" secondItem="1MF-9f-9fA" secondAttribute="bottom" id="doW-Q6-PWr"/>
+                <constraint firstItem="mOU-RE-kZr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hEg-HG-ETz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gifView" destination="X6U-sl-Qgo" id="kl2-Ja-CkF"/>
+                <outlet property="imageView" destination="mOU-RE-kZr" id="muX-Nn-1kI"/>
+                <outlet property="seeBigButton" destination="1MF-9f-9fA" id="u2i-3D-whi"/>
+            </connections>
+            <point key="canvasLocation" x="367" y="277"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common-gif" width="31" height="31"/>
+        <image name="see-big-picture" width="19" height="19"/>
+        <image name="see-big-picture-background" width="285" height="43"/>
+    </resources>
+</document>

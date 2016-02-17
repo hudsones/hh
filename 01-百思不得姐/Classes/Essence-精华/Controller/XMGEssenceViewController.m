@@ -40,19 +40,19 @@
 }
 -(void)setupChildVces{
     XMGTopicViewController *all = [[XMGTopicViewController alloc]init];
-    all.type = XMGTopicAll;
+    all.type = XMGTopicTypeAll;
     [self addChildViewController:all];
     XMGTopicViewController *video = [[XMGTopicViewController alloc]init];
-    video.type = XMGTopicVideo;
+    video.type = XMGTopicTypeVideo;
     [self addChildViewController:video];
     XMGTopicViewController *voice = [[XMGTopicViewController alloc]init];
-    voice.type = XMGTopicVoice;
+    voice.type = XMGTopicTypeVoice;
     [self addChildViewController:voice];
     XMGTopicViewController *picture = [[XMGTopicViewController alloc]init];
-    picture.type = XMGTopicPicture;
+    picture.type = XMGTopicTypePicture;
     [self addChildViewController:picture];
     XMGTopicViewController *word = [[XMGTopicViewController alloc]init];
-    word.type = XMGTopicWord;
+    word.type = XMGTopicTypeWord;
     [self addChildViewController:word];
 }
 -(void)setupContentView{

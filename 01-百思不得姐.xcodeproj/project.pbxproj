@@ -22,6 +22,9 @@
 		1892B3011C5B45D40039FF47 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892B2FF1C5B45D40039FF47 /* XMGRecommendUserCell.xib */; };
 		189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189CC84D1C59D334003C8362 /* XMGNavigationController.m */; };
 		18B463391C61BD7700493204 /* XMGTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B463381C61BD7700493204 /* XMGTopic.m */; };
+		18D4EA381C748EAF000D78BB /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4EA371C748EAF000D78BB /* XMGConst.m */; };
+		18D4EA3B1C749829000D78BB /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4EA3A1C749829000D78BB /* XMGTopicPictureView.m */; };
+		18D4EA3D1C749837000D78BB /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D4EA3C1C749837000D78BB /* XMGTopicPictureView.xib */; };
 		18DAF1C01C61DD870043958B /* XMGTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DAF1BE1C61DD870043958B /* XMGTopicCell.m */; };
 		18DAF1C11C61DD870043958B /* XMGTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DAF1BF1C61DD870043958B /* XMGTopicCell.xib */; };
 		18F5CB7E1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F5CB7D1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib */; };
@@ -80,6 +83,11 @@
 		189CC84D1C59D334003C8362 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
 		18B463371C61BD7700493204 /* XMGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopic.h; sourceTree = "<group>"; };
 		18B463381C61BD7700493204 /* XMGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopic.m; sourceTree = "<group>"; };
+		18D4EA361C748EAE000D78BB /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
+		18D4EA371C748EAF000D78BB /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
+		18D4EA391C749829000D78BB /* XMGTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicPictureView.h; sourceTree = "<group>"; };
+		18D4EA3A1C749829000D78BB /* XMGTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicPictureView.m; sourceTree = "<group>"; };
+		18D4EA3C1C749837000D78BB /* XMGTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicPictureView.xib; sourceTree = "<group>"; };
 		18DAF1BD1C61DD870043958B /* XMGTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicCell.h; sourceTree = "<group>"; };
 		18DAF1BE1C61DD870043958B /* XMGTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopicCell.m; sourceTree = "<group>"; };
 		18DAF1BF1C61DD870043958B /* XMGTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGTopicCell.xib; sourceTree = "<group>"; };
@@ -259,6 +267,9 @@
 				18DAF1BD1C61DD870043958B /* XMGTopicCell.h */,
 				18DAF1BE1C61DD870043958B /* XMGTopicCell.m */,
 				18DAF1BF1C61DD870043958B /* XMGTopicCell.xib */,
+				18D4EA391C749829000D78BB /* XMGTopicPictureView.h */,
+				18D4EA3A1C749829000D78BB /* XMGTopicPictureView.m */,
+				18D4EA3C1C749837000D78BB /* XMGTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +404,8 @@
 				70B5CBB21B5F7EEF00E1C3EA /* AppDelegate.m */,
 				70B5CBBB1B5F7EEF00E1C3EA /* main.m */,
 				70B5CBBC1B5F7EEF00E1C3EA /* PrefixHeader.pch */,
+				18D4EA361C748EAE000D78BB /* XMGConst.h */,
+				18D4EA371C748EAF000D78BB /* XMGConst.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -517,6 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D4EA3D1C749837000D78BB /* XMGTopicPictureView.xib in Resources */,
 				18F5CB7E1C5EFC0900F3297F /* XMGFriendTrendsViewController.xib in Resources */,
 				1892B2F91C5B1FDB0039FF47 /* XMGRecommendCategoryCell.xib in Resources */,
 				18F5CB831C5F022600F3297F /* XMGLoginRegisterViewController.xib in Resources */,
@@ -592,10 +606,12 @@
 			files = (
 				70B5CBC91B5F7EEF00E1C3EA /* XMGTabBar.m in Sources */,
 				189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */,
+				18D4EA3B1C749829000D78BB /* XMGTopicPictureView.m in Sources */,
 				1892B2F11C5B1C4F0039FF47 /* XMGRecommendCategory.m in Sources */,
 				18239A871C62DB5700750FA3 /* NSDate+XMGExtension.m in Sources */,
 				70B5CBC21B5F7EEF00E1C3EA /* XMGMeViewController.m in Sources */,
 				18F5CB821C5F022600F3297F /* XMGLoginRegisterViewController.m in Sources */,
+				18D4EA381C748EAF000D78BB /* XMGConst.m in Sources */,
 				70B5CBC01B5F7EEF00E1C3EA /* XMGEssenceViewController.m in Sources */,
 				1855FD331C5F4023002BF28B /* XMGTextfieldAttr.m in Sources */,
 				1892B2ED1C5B0CEA0039FF47 /* XMGRecommendViewController.m in Sources */,

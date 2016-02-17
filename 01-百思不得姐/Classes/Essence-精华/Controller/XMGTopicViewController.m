@@ -51,7 +51,7 @@ static NSString * const  XMGTopicID = @"topic";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGTopicCell class]) bundle:nil] forCellReuseIdentifier:XMGTopicID];
     self.tableView.backgroundColor = XMGGlobalBg;
     self.tableView.separatorStyle = NO;
-    self.tableView.rowHeight = 100;
+   
 }
 -(void)setupRefresh{
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
@@ -128,11 +128,16 @@ static NSString * const  XMGTopicID = @"topic";
     
     cell.topics = self.topics[indexPath.row];
     
-    
-    
+
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    XMGTopic *topic = self.topics[indexPath.row];
+    
+    return topic.cellHeight;
+}
 /*
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];

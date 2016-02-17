@@ -9,6 +9,7 @@
 #import "XMGTopicCell.h"
 #import <UIImageView+WebCache.h>
 #import "XMGTopic.h"
+#import "XMGTopicPictureView.h"
 
 @interface XMGTopicCell()
 
@@ -23,8 +24,22 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *text_label;
+
+/*图片帖子的内容 */
+@property (nonatomic, weak) XMGTopicPictureView  *pictureView;
 @end
 @implementation XMGTopicCell
+
+-(XMGTopicPictureView *)pictureView{
+    if (!_pictureView) {
+        XMGTopicPictureView *pictureView = [XMGTopicPictureView pictureView];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
 
 - (void)awakeFromNib {
     UIImageView *bgView = [[UIImageView alloc]init];
@@ -41,6 +56,15 @@
     [self setupButtonTitle:self.caiButton count:topics.cai placeholder:@"踩"];
     [self setupButtonTitle:self.shareButton count:topics.repost placeholder:@"转发"];
     [self setupButtonTitle:self.commentButton count:topics.comment placeholder:@"评论"];
+    
+    self.text_label.text = topics.text;
+    
+    if (topics.type == XMGTopicTypePicture) {
+        self.pictureView.topic = topics;
+        self.pictureView.frame = topics.pictureF;
+    }else if(topics.type == XMGTopicTypeVoice){
+        
+    }
 }
 
 -(void)setupButtonTitle:(UIButton *)button count:(NSInteger)count placeholder:(NSString *)placeholder{

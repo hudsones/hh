@@ -7,13 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef enum{
-    XMGTopicAll = 1,
-    XMGTopicPicture = 10,
-    XMGTopicWord = 29,
-    XMGTopicVoice = 31,
-    XMGTopicVideo = 41
-}XMGTopicType;
+
 
 
 @interface XMGTopicViewController : UITableViewController

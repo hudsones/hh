@@ -9,6 +9,16 @@
 #import "XMGTopic.h"
 
 @implementation XMGTopic
+
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"small_image" : @"image0",
+             @"large_image" : @"image1",
+             @"middle_image" : @"image2"
+             };
+}
 -(NSString *)create_time{
     NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
     
@@ -36,5 +46,34 @@
     }else{
         return _create_time;
     }
+}
+
+
+-(CGFloat)cellHeight{
+    if (!_cellHeight) {
+        CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4*XMGTopicCellMargin, MAXFLOAT);
+        
+        CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:14]} context:nil].size.height;
+        
+        _cellHeight = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+        
+        if (self.type == XMGTopicTypePicture) {
+            CGFloat pictureW = maxSize.width;
+            CGFloat pictureH = pictureW *self.height /self.width;
+            
+            if (pictureH >=XMGTopicCellPictureMaxH) {
+                pictureH = XMGTopicCellPictureBreakH;
+                self.bigPicture = YES;
+            }
+            CGFloat pictureX = XMGTopicCellMargin;
+            CGFloat pictureY = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+            _pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+            _cellHeight += pictureH + XMGTopicCellMargin;
+        }else if (self.type == XMGTopicTypeVideo){
+            
+        }
+        _cellHeight += XMGTopicCellBottomBarH + XMGTopicCellMargin;
+    }
+    return _cellHeight;
 }
 @end
