@@ -27,10 +27,10 @@
                 return @"刚刚";
             }
         }else if(create.isYesterday){
-            fmt.dateFormat = @"昨天 HH:mm:ss";
+            fmt.dateFormat = @"昨天 HH:mm";
             return [fmt stringFromDate:create];
         }else{
-            fmt.dateFormat = @"MM-dd HH-mm-ss";
+            fmt.dateFormat = @"MM-dd HH:mm";
             return [fmt stringFromDate:create];
         }
     }else{
