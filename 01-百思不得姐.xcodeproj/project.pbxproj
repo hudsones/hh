@@ -22,6 +22,8 @@
 		1892B3011C5B45D40039FF47 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1892B2FF1C5B45D40039FF47 /* XMGRecommendUserCell.xib */; };
 		189CC84E1C59D334003C8362 /* XMGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189CC84D1C59D334003C8362 /* XMGNavigationController.m */; };
 		18B463391C61BD7700493204 /* XMGTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B463381C61BD7700493204 /* XMGTopic.m */; };
+		18C39F701C76D07400680167 /* XMGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C39F6E1C76D07400680167 /* XMGPublishView.m */; };
+		18C39F711C76D07400680167 /* XMGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C39F6F1C76D07400680167 /* XMGPublishView.xib */; };
 		18D4EA381C748EAF000D78BB /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4EA371C748EAF000D78BB /* XMGConst.m */; };
 		18D4EA3B1C749829000D78BB /* XMGTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D4EA3A1C749829000D78BB /* XMGTopicPictureView.m */; };
 		18D4EA3D1C749837000D78BB /* XMGTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D4EA3C1C749837000D78BB /* XMGTopicPictureView.xib */; };
@@ -86,6 +88,9 @@
 		189CC84D1C59D334003C8362 /* XMGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNavigationController.m; sourceTree = "<group>"; };
 		18B463371C61BD7700493204 /* XMGTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopic.h; sourceTree = "<group>"; };
 		18B463381C61BD7700493204 /* XMGTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTopic.m; sourceTree = "<group>"; };
+		18C39F6D1C76D07400680167 /* XMGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPublishView.h; sourceTree = "<group>"; };
+		18C39F6E1C76D07400680167 /* XMGPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPublishView.m; sourceTree = "<group>"; };
+		18C39F6F1C76D07400680167 /* XMGPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPublishView.xib; sourceTree = "<group>"; };
 		18D4EA361C748EAE000D78BB /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
 		18D4EA371C748EAF000D78BB /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
 		18D4EA391C749829000D78BB /* XMGTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTopicPictureView.h; sourceTree = "<group>"; };
@@ -443,6 +448,9 @@
 				70B5CBBA1B5F7EEF00E1C3EA /* XMGTabBarController.m */,
 				189CC84C1C59D334003C8362 /* XMGNavigationController.h */,
 				189CC84D1C59D334003C8362 /* XMGNavigationController.m */,
+				18C39F6D1C76D07400680167 /* XMGPublishView.h */,
+				18C39F6E1C76D07400680167 /* XMGPublishView.m */,
+				18C39F6F1C76D07400680167 /* XMGPublishView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -553,6 +561,7 @@
 				18DE2C071C75C1AA00315A0C /* XMGShowPictureViewController.xib in Resources */,
 				1892B2EE1C5B0CEA0039FF47 /* XMGRecommendViewController.xib in Resources */,
 				1892B3011C5B45D40039FF47 /* XMGRecommendUserCell.xib in Resources */,
+				18C39F711C76D07400680167 /* XMGPublishView.xib in Resources */,
 				70B5CB631B5F27D200E1C3EA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +653,7 @@
 				183D43B51C642B8200802C2A /* XMGTopicViewController.m in Sources */,
 				18B463391C61BD7700493204 /* XMGTopic.m in Sources */,
 				1892B2F81C5B1FDB0039FF47 /* XMGRecommendCategoryCell.m in Sources */,
+				18C39F701C76D07400680167 /* XMGPublishView.m in Sources */,
 				18DE2C061C75C1AA00315A0C /* XMGShowPictureViewController.m in Sources */,
 				70B5CBC81B5F7EEF00E1C3EA /* main.m in Sources */,
 				70B5CBC51B5F7EEF00E1C3EA /* UIBarButtonItem+XMGExtension.m in Sources */,

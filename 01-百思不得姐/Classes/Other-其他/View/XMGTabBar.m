@@ -7,7 +7,7 @@
 //
 
 #import "XMGTabBar.h"
-
+#import "XMGPublishView.h"
 @interface XMGTabBar()
 /** 发布按钮 */
 @property (nonatomic, weak) UIButton *publishButton;
@@ -25,13 +25,19 @@
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
         publishButton.size = publishButton.currentBackgroundImage.size;
         [self addSubview:publishButton];
         self.publishButton = publishButton;
     }
     return self;
 }
-
+-(void)publishClick{
+    XMGPublishView *publish = [XMGPublishView publishView];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    publish.frame = window.bounds;
+    [window addSubview:publish];
+}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
